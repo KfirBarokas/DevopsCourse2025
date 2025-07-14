@@ -2,14 +2,9 @@ FROM python:3.13.5-alpine3.22
 
 RUN apk update && apk add git
 
-RUN git clone https://github.com/KfirBarokas/DevopsCourse2025
-WORKDIR DevopsCourse2025
-
-RUN git checkout feature/sol
-
-RUN cp -r . /usr/src/app
-
 WORKDIR /usr/src/app
+
+COPY . .
 
 RUN pip install -e .
 
